@@ -1,0 +1,16 @@
+# Packages
+node_modules/
+
+# Log files
+logs/
+*.log
+
+# NPM ignore
+.eslintrc.json
+.gitignore
+.travis.yml
+__test__/
+.github/
+coverage/
+# typedoc autogen
+docs/

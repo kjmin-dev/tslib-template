@@ -1,0 +1,71 @@
+{
+    "name": "tslib-template",
+    "version": "0.0.1",
+    "description": "A small template for writing TypeScript-based libraries.",
+    "keywords": [
+        "typescript"
+    ],
+    "homepage": "https://github.com/schnellehand/tslib-template",
+    "bugs": {
+        "url": "https://github.com/schnellehand/tslib-template/issues",
+        "email": "kjmin@kjmin.io"
+    },
+    "author": {
+        "name": "schnellehand",
+        "email": "kjmin@kjmin.io"
+    },
+    "license": "(MIT OR Apache-2.0)",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/schnellehand/tslib-template.git"
+    },
+    "engines": {
+        "node": ">= 12"
+    },
+    "main": "build/src/index.js",
+    "browser": "build/src/index.js",
+    "lint-staged": {
+        "*.{ts,tsx}": [
+            "yarn lint",
+            "yarn format"
+        ]
+    },
+    "husky": {
+        "hooks": {
+            "pre-commit": "lint-staged"
+        }
+    },
+    "devDependencies": {
+        "@types/jest": "^26.0.15",
+        "@types/node": "^14.11.1",
+        "@types/node-fetch": "^2.5.7",
+        "@typescript-eslint/eslint-plugin": "^4.1.1",
+        "@typescript-eslint/parser": "^4.1.1",
+        "eslint": "^7.9.0",
+        "eslint-config-prettier": "^6.11.0",
+        "eslint-plugin-jest": "^24.0.1",
+        "husky": "^4.3.0",
+        "jest": "^26.4.2",
+        "lint-staged": "^10.5.1",
+        "prettier": "^2.1.2",
+        "rimraf": "^3.0.2",
+        "ts-jest": "^26.3.0",
+        "tsutils": "^3.17.1",
+        "typedoc": "^0.19.2",
+        "typescript": "^4.0.2"
+    },
+    "scripts": {
+        "clean": "rimraf coverage build tmp",
+        "build": "tsc -p tsconfig.release.json",
+        "build:watch": "tsc -w -p tsconfig.release.json",
+        "lint": "eslint . --ext .ts,.tsx",
+        "format": "prettier --write \"**/*.{js,ts,tsx,json}\" --no-semi",
+        "test": "jest --coverage",
+        "test:watch": "jest --watch",
+        "doc": "typedoc --out docs src && touch docs/.nojekyll"
+    },
+    "dependencies": {
+        "node-fetch": "^2.6.1",
+        "tslib": "^2.0.1"
+    }
+}
